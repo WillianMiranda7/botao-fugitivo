@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="index.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me dá</title>
+</head>
+
+<body>
+    <div id="containerPrimeiroBotao" class="flex">
+        <p id="vamosComecar">Vamos começar?</p>
+        <button id="botaoVamos">Vamos!</button>
+    </div>
+    <div id="containerconteudo" class="escondido">
+        <div id="conteudo">
+            <h1>Me dá o buraco da bala?</h1>
+            <img id="imagemPrincipal" src="img/sad-emoji.webp" alt="foto-principal">
+            <div id="botoes">
+                <a href="ayrton.html"><button id="sim">Sim</button></a>
+                <button id="nao">Não</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const botaoVamos = document.getElementById('botaoVamos')
+    const containerPrimeiroBotao = document.getElementById('containerPrimeiroBotao')
+    const conteudoPrincipal = document.getElementById('containerconteudo')
+    const botaoNao = document.getElementById('nao')
+    const botaoSim = document.getElementById('sim')
+    const som = new Audio('som/ole.mp3')
+    const ayrtonSennaVideo = document.getElementById('ayrton-senna')
+    const botoes = document.getElementById('botoes')
+
+    let fotoPrincipal = document.getElementById('imagemPrincipal')
+    let emojiRindo = 'img/emoji-rindo.jpg'
+
+
+    botaoNao.addEventListener('mouseover', moverBotao)
+    botaoNao.addEventListener('click', moverBotao)
+    botaoVamos.addEventListener('click', mostrarConteudo)
+    botaoSim.addEventListener('click', tocarVideo)
+
+
+    // Função para mover botão
+    function moverBotao() {
+        const larguraJanela = window.innerWidth
+        const alturaJanela = window.innerHeight
+
+        const novaPosicaoX = Math.random() * (larguraJanela - botaoNao.offsetWidth) / 2
+        const novaPosicaoY = Math.random() * (alturaJanela - botaoNao.offsetHeight) / 2
+
+        botaoNao.style.left = `${novaPosicaoX}px`
+        botaoNao.style.top = `${novaPosicaoY}px`
+
+        trocarScr()
+
+        som.currentTime = 0
+        som.play()
+    }
+
+    // Mostrar conteúdo
+    function mostrarConteudo() {
+        containerPrimeiroBotao.classList.remove('flex')
+        containerPrimeiroBotao.classList.add('escondido')
+        conteudoPrincipal.classList.remove('escondido')
+    }
+
+
+    //Trocar foto
+    const fotos = [
+        'img/emoji-rindo.jpg',
+        'img/bolsonaro-rindo.png',
+        'img/lula-rindo.png',
+        'img/chaves-rindo.jpg',
+        'img/bigode-rindo.jpg',
+        'img/gato-rindo.jpg'
+    ]
+    let indiceImagem = 0
+
+    function trocarScr() {
+        fotoPrincipal.src = fotos[indiceImagem]
+        indiceImagem++
+
+        if (indiceImagem == fotos.length) {
+            indiceImagem = 0
+        }
+    }
+
+    function tocarVideo() {
+        ayrtonSennaVideo.classList.remove('escondido')
+        fotoPrincipal.classList.add('escondido')
+    }
+</script>
+
+</html>
