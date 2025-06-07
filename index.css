@@ -3,6 +3,15 @@
     margin: 0;
 }
 
+a {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    background-color: blue;
+    justify-content: center;
+    align-items: center;
+}
+
 body {
     display: flex;
     align-items: center;
@@ -40,6 +49,8 @@ body {
     font-size: 24px;
     border-radius: 10px;
     cursor: pointer;
+    border: 0px;
+    box-shadow: 0px 5px 10px rgba(000, 000, 000, 0.5);
 }
 
 #sim {
@@ -66,7 +77,8 @@ body {
 .escondido {
     display: none;
 }
-.flex{
+
+.flex {
     display: flex;
 }
 
@@ -79,12 +91,14 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-#vamosComecar{
+
+#vamosComecar {
     font-size: 50px;
     white-space: nowrap;
     margin-bottom: 20px;
 }
-#botaoVamos{
+
+#botaoVamos {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 5px 10px rgba(000, 000, 000, 0.5);
@@ -94,6 +108,7 @@ body {
     border: 1px solid white;
     cursor: pointer;
 }
-#ayrton-senna{
+
+#ayrton-senna {
     height: 250px;
 }
