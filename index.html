@@ -38,11 +38,16 @@
     let fotoPrincipal = document.getElementById('imagemPrincipal')
     let emojiRindo = 'img/emoji-rindo.jpg'
 
-
+    //No PC
     botaoNao.addEventListener('mouseover', moverBotao)
     botaoNao.addEventListener('click', moverBotao)
     botaoVamos.addEventListener('click', mostrarConteudo)
     botaoSim.addEventListener('click', tocarVideo)
+
+    //No celular
+    botaoNao.addEventListener('touchstart', moverBotao)
+    botaoVamos.addEventListener('touchstart', mostrarConteudo)
+    botaoSim.addEventListener('touchstart', tocarVideo)
 
 
     // Função para mover botão
